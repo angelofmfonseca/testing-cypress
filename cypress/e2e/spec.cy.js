@@ -4,7 +4,7 @@ describe("Fundamentals tests", () => {
   });
 
   it("Contains the correct header text", () => {
-    cy.get("[data-test='fundamentals-header']").should(
+    cy.getDataTest("fundamentals-header").should(
       "contain.text",
       "Testing Fundamentals",
     );
@@ -13,11 +13,11 @@ describe("Fundamentals tests", () => {
     cy.contains(/Your tests will exist in a describe block/i).should(
       "not.be.visible",
     );
-    cy.get("[data-test='accordion-item-1']").click();
+    cy.getDataTest("accordion-item-1").click();
     cy.contains(/Your tests will exist in a describe block/i).should(
       "be.visible",
     );
-    cy.get("[data-test='accordion-item-1']").click();
+    cy.getDataTest("accordion-item-1").click();
     cy.contains(/Your tests will exist in a describe block/i).should(
       "not.be.visible",
     );
