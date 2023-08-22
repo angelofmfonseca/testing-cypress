@@ -43,12 +43,15 @@ export default function FormsPage() {
       <ItemsAccordion items={items} />
       <TextField
         className={styles.input}
+        type='email'
         label='Email'
         variant='filled'
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        data-test='email-input'
       />
       <Button
+        data-test='subscribe-button'
         onClick={() => {
           if (!inputValue.includes(".com")) {
             setSubMessage(`Invalid email: ${inputValue}!`);
