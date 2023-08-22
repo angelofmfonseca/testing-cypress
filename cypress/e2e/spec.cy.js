@@ -11,10 +11,13 @@ describe("Fundamentals tests", () => {
     cy.contains(/Your tests will exist in a describe block/i).should(
       "not.be.visible",
     );
-    cy.get("[data-test='accordion-item-1']");
     cy.get("[data-test='accordion-item-1']").click();
     cy.contains(/Your tests will exist in a describe block/i).should(
       "be.visible",
+    );
+    cy.get("[data-test='accordion-item-1']").click();
+    cy.contains(/Your tests will exist in a describe block/i).should(
+      "not.be.visible",
     );
   });
 });
