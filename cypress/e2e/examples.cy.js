@@ -23,7 +23,7 @@ describe("Examples tests", () => {
     cy.location("pathname").should("equal", "/best-practices");
   });
 
-  it.only("Intercepts tests", () => {
+  it("Intercepts tests", () => {
     cy.intercept("POST", "http://localhost:3000/examples", {
       fixture: "example.json",
     });
