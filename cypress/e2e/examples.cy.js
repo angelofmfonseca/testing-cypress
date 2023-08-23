@@ -22,4 +22,13 @@ describe("Examples tests", () => {
     cy.getDataTest("nav-bar-best-practices").click();
     cy.location("pathname").should("equal", "/best-practices");
   });
+
+  it.only("Intercepts tests", () => {
+    cy.intercept("POST", "http://localhost:3000/examples", {
+      body: {
+        message: "Successfully intercepted!",
+      },
+    });
+    cy.getDataTest("post-button").click();
+  });
 });
