@@ -35,6 +35,7 @@ describe("Examples tests", () => {
     cy.getDataTest("grudge-input").within(() => {
       cy.get("input").type("some grudge");
     });
+    cy.getDataTest("clear-button").should("not.exist");
     cy.getDataTest("grudge-list").within(() => {
       cy.get("li").should("have.length", 0);
     });
@@ -60,5 +61,11 @@ describe("Examples tests", () => {
     cy.getDataTest("grudge-list").within(() => {
       cy.get("li").should("have.length", 1);
     });
+    cy.getDataTest("clear-button").should("exist");
+    cy.getDataTest("clear-button").click();
+    cy.getDataTest("grudge-list").within(() => {
+      cy.get("li").should("have.length", 0);
+    });
+    cy.getDataTest("clear-button").should("not.exist");
   });
 });
